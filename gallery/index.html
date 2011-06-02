@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Image Gallery</title>
+		<script type="text/javascript" src="src/Pic.js"></script>
+		<script type="text/javascript" src="src/Gallery.js"></script>
+		<script type="text/javascript" src="src/PaintingLib.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<style type="text/css">
+			canvas { border: 1px solid red; }
+		</style>
+		<link rel="stylesheet" type="text/css" href="../includes/option3.css" />
+		<script type="text/javascript">
+			
+			var gallery;
+			var canvas;
+			var context;
+			
+			var xMouse;
+			var yMouse;
+			
+			function loadImages() {
+				canvas = document.getElementById("c");
+				context = canvas.getContext("2d");
+				gallery = new Gallery("one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve");
+				
+				canvas.addEventListener("mousedown", clickCanvas, false)
+			}
+			
+			function clickCanvas(e) {
+				gallery.selectPic(e.offsetX, e.offsetY);
+			}
+			
+		</script>
+	</head>
+	
+	<body onload="loadImages();">
+		<header>
+			<img src="../images/header3.jpg" alt="header"/>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="../posts/index.php">Home</a></li>
+				<li><a href="../gallery/index.html">Gallery</a></li>
+				<li><a href="../friends/index.php">Friends</a></li>
+				<li><a href="../posts/searchform.php">Search</a></li>
+				<li><a href="../includes/about.php">About</a></li>
+				<li><a href="../includes/contact.php">Contact</a></li>
+				<li><a href="../posts/new.php">New Post</a></li>
+			</ul>
+		</nav>
+		<article class="canvas">
+			<canvas id="c" width="800" height="600"></canvas>
+			<div style="display: none;">
+				<img src="cass.jpg" id="one" alt=""/>
+				<img src="cass.jpg" id="two" alt=""/>
+				<img src="cass.jpg" id="three" alt=""/>
+				<img src="cass.jpg" id="four" alt=""/>
+				<img src="cass.jpg" id="five" alt=""/>
+				<img src="cass.jpg" id="six" alt=""/>
+				<img src="cass.jpg" id="seven" alt=""/>
+				<img src="cass.jpg" id="eight" alt=""/>
+				<img src="cass.jpg" id="nine" alt=""/>
+				<img src="cass.jpg" id="ten" alt=""/>
+				<img src="cass.jpg" id="eleven" alt=""/>
+				<img src="cass.jpg" id="twelve" alt=""/>
+			</div>
+		</article>
+		<footer>
+			~A Lichtman Labs Production~
+		</footer>
+	</body>
+</html>
